@@ -1,0 +1,19 @@
+{
+    "name": "@synaps-io/synaps-client-sdk-js",
+    "version": "1.0.0",
+    "description": "Synaps Client SDK - Javascript",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"No test specified\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/synaps-io/synaps-client-sdk-js.git"
+    },
+    "author": "Synaps",
+    "bugs": {
+        "url": "https://github.com/synaps-io/synaps-client-sdk-js/issues"
+    },
+    "homepage": "https://synaps.io"
+}
+
