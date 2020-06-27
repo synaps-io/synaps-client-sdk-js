@@ -4,7 +4,7 @@ export class SynapsClient {
         this.workflow_type = 'modal'
         this.service = service
         this.base_url = 'https://verify.synaps.io';
-        this.styles = "@import url(https://fonts.googleapis.com/css?family=Rubik&display=swap);.synaps-verify-btn-blue{outline:0;cursor:pointer;background:#2b415f;padding:13px;color:#fff;font-size:1.05rem;font-family:Rubik,sans-serif;border-radius:4px;border:1px solid #2b415f;padding-left:40px;background-image:url(https://s3-eu-west-1.amazonaws.com/synaps-cdn/synaps-logo-white.svg);background-size:16px;background-repeat:no-repeat;background-position:12px center}.synaps-verify-btn-blue:focus,.synaps-verify-btn-blue:hover{color:#fff;outline:0;background-color:#1d3349;border:1px solid #1d3349;-webkit-transform:translateY(-1px);transform:translateY(-1px)}.synaps-verify-btn-blue:active{color:#e6ebf1;background-color:#1d3349;-webkit-transform:translateY(1px);transform:translateY(1px);outline:0}.synaps-verify-btn-white{outline:0;cursor:pointer;background:#fff;padding:13px;color:#2b415f;font-size:1.05rem;font-family:Rubik,sans-serif;border-radius:4px;border:1px solid #f2f2f2;padding-left:40px;background-image:url(https://s3-eu-west-1.amazonaws.com/synaps-cdn/synaps-logo-blue.svg);background-size:16px;background-repeat:no-repeat;background-position:12px center}.synaps-verify-btn-white:focus,.synaps-verify-btn-white:hover{color:#365069;outline:0;background-color:#f9f9f9;border:1px solid #ddd;-webkit-transform:translateY(-1px);transform:translateY(-1px)}.synaps-verify-btn-white:active{color:#365069;background-color:#fff;-webkit-transform:translateY(1px);transform:translateY(1px);outline:0}.synaps-container{width:700px;height:700px;border-color:transparent;border-width:0;border-style:none;left:0;top:0;-webkit-tap-highlight-color:transparent}@media(max-width:700px){.synaps-container{width:98%}}";
+        this.styles = "@import url(https://fonts.googleapis.com/css?family=Rubik&display=swap);.synaps-verify-btn-blue{outline:0;cursor:pointer;background:#2b415f;padding:13px;color:#fff;font-size:1.05rem;font-family:Rubik,sans-serif;border-radius:4px;border:1px solid #2b415f;padding-left:40px;background-image:url(https://s3-eu-west-1.amazonaws.com/synaps-cdn/synaps-logo-white.svg);background-size:16px;background-repeat:no-repeat;background-position:12px center}.synaps-verify-btn-blue:focus,.synaps-verify-btn-blue:hover{color:#fff;outline:0;background-color:#1d3349;border:1px solid #1d3349;-webkit-transform:translateY(-1px);transform:translateY(-1px)}.synaps-verify-btn-blue:active{color:#e6ebf1;background-color:#1d3349;-webkit-transform:translateY(1px);transform:translateY(1px);outline:0}.synaps-verify-btn-white{outline:0;cursor:pointer;background:#fff;padding:13px;color:#2b415f;font-size:1.05rem;font-family:Rubik,sans-serif;border-radius:4px;border:1px solid #f2f2f2;padding-left:40px;background-image:url(https://s3-eu-west-1.amazonaws.com/synaps-cdn/synaps-logo-blue.svg);background-size:16px;background-repeat:no-repeat;background-position:12px center}.synaps-verify-btn-white:focus,.synaps-verify-btn-white:hover{color:#365069;outline:0;background-color:#f9f9f9;border:1px solid #ddd;-webkit-transform:translateY(-1px);transform:translateY(-1px)}.synaps-verify-btn-white:active{color:#365069;background-color:#fff;-webkit-transform:translateY(1px);transform:translateY(1px);outline:0}.synaps-container{width:100%;height:100%;border-color:transparent;border-width:0;border-style:none;left:0;top:0;-webkit-tap-highlight-color:transparent}@media(max-width:700px){.synaps-container{width:98%}}";
         this.session_id = session_id;
         this.is_open = false;
         this.colors = {
@@ -39,13 +39,16 @@ export class SynapsClient {
     }
 
     initEmbed(id) {
-        let embeddedWorkflow = this.getWorkflow();
-        let embedElement = document.getElementById(id);
-        if (embedElement !== null) {
-            this.is_open = true;
-            embeddedWorkflow.setAttribute('class', 'synaps-container');
-            embedElement.appendChild(embeddedWorkflow);
-        }
+        let self = this
+        setTimeout(function () {
+            let embeddedWorkflow = self.getWorkflow();
+            let embedElement = document.getElementById(id);
+            if (embedElement !== null) {
+                self.is_open = true;
+                embeddedWorkflow.setAttribute('class', 'synaps-container');
+                embedElement.appendChild(embeddedWorkflow);
+            }
+        }, 1000)
     }
 
     on(type, callback) {
