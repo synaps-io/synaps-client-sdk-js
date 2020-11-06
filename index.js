@@ -171,10 +171,7 @@ export class SynapsClient {
         body.style.removeProperty('overflow');
         html.style.removeProperty('margin');
         body.style.removeProperty('margin');
-        const src = '#';
-        this.iframe.setAttribute('src', src);
-        this.iframe.setAttribute('style', 'display:none');
         this.is_open = false;
-        document.body.appendChild(this.iframe);
+        document.body.removeChild(this.iframe);
     }
 }
