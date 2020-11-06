@@ -1,6 +1,6 @@
 {
     "name": "@synaps-io/synaps-client-sdk-js",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Synaps Client SDK - Javascript",
     "main": "index.js",
     "scripts": {
