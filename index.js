@@ -175,3 +175,5 @@ export class SynapsClient {
         document.body.removeChild(this.iframe);
     }
 }
+
+export default SynapsClient;
