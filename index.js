@@ -11,6 +11,7 @@ export class SynapsClient {
             primary: '',
             secondary: '',
         }
+        this.lang = '';
         this.iframe = document.createElement('iframe');
         this.user_close_callback = null;
         this.user_finish_callback = null;
@@ -66,7 +67,8 @@ export class SynapsClient {
         colors: {
             primary: '',
             secondary: ''
-        }
+        },
+        lang: 'en',
     }) {
         if (!options.type) {
             options.type = 'modal'
@@ -80,6 +82,9 @@ export class SynapsClient {
         if (!options.element_id) {
             options.element_id = ''
         }
+
+        this.lang = options.lang
+
         if (options.type === 'modal' || options.type === 'embed') {
             this.colors = options.colors;
             if (options.element_id === '') {
@@ -140,7 +145,7 @@ export class SynapsClient {
         }
         this.is_open = true;
         let html = document.getElementsByTagName('html')[0];
-        let src = `${this.base_url}?session_id=${this.session_id}&service=${this.service}&type=${this.workflow_type}&primary_color=${this.colors.primary}&secondary_color=${this.colors.secondary}`;
+        let src = `${this.base_url}?session_id=${this.session_id}&service=${this.service}&type=${this.workflow_type}&primary_color=${this.colors.primary}&secondary_color=${this.colors.secondary}&lang=${this.lang}`;
         html.style.overflow = 'hidden';
         html.style.overflow = 'hidden';
         this.iframe.setAttribute('src', src);
